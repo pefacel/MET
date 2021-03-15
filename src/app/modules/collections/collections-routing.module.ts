@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ArtObjectComponent } from './pages/art-object/art-object.component';
+import { CollectionComponent } from './pages/collection/collection.component';
 import { CollectionsComponent } from './pages/collections/collections.component';
 
 
@@ -8,23 +9,39 @@ const routes: Routes =
 
 
 
-[
+  [
 
-  {path:'', 
+    {
+      path: '', children: [
+        {
+          path: '',
+          children: [
+            { path: '', component: CollectionsComponent },
 
-    children:[
-      {path: '', component: CollectionsComponent},
+            {
+              path: 'collection/:id',
 
-      {path: 'object', component: ArtObjectComponent}
-  
-    
-  ]}
+              children: [
+                { path: '', component: CollectionComponent },
+
+                { path: 'object/:id', component: ArtObjectComponent },
+              ]
+
+            },
+          ]
+
+        },
+
+
+
+      ]
+    }
 
 
 
 
 
-];
+  ];
 
 
 

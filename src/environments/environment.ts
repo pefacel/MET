@@ -6,7 +6,9 @@ export const environment = {
   production: false,
   endpointArtObject: 'https://collectionapi.metmuseum.org/public/collection/v1/objects/',
   
-  endpointCollections: 'https://collectionapi.metmuseum.org/public/collection/v1/departments'
+  endpointCollections: 'https://collectionapi.metmuseum.org/public/collection/v1/departments',
+  endpointCollection: 'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds='
+
 
 
 };

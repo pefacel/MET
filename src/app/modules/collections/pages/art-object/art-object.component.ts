@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ArtObjectService } from 'src/app/core/services/art-object.service';
 import { ArtObjectResponse } from 'src/app/shared/models/art-object-response';
 
@@ -10,12 +11,21 @@ import { ArtObjectResponse } from 'src/app/shared/models/art-object-response';
 export class ArtObjectComponent implements OnInit {
   public artObject: ArtObjectResponse;
 
-  constructor(private artObjectService: ArtObjectService) { 
+  constructor(
+    private artObjectService: ArtObjectService,
+    private activatedRoute: ActivatedRoute
+
+    ) { 
+
+      activatedRoute.params.subscribe(params => {
+        console.log('params -->', params);
+        artObjectService.getObjectById(params.id).subscribe(respCharacter => {
+          this.artObject = respCharacter;
+        })
+      })
 
 
-    artObjectService.getObjectById(587).subscribe(respAllCharacters => {
-      this.artObject = respAllCharacters;
-    });
+
 
   }
 
