@@ -1,49 +1,117 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<nav class="flex items-center justify-center" aria-label="Progress">
+  <p class="text-sm font-medium">Level of zoom</p>
 
-<div class="bg-white">
-  <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
-    <div class="space-y-12">
-      <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-        <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Our Team</h2>
-        <p class="text-xl text-gray-500">Odio nisi, lectus dis nulla. Ultrices maecenas vitae rutrum dolor ultricies donec risus sodales. Tempus quis et.</p>
-      </div>
-      <ul class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
-        <li>
-          <div class="space-y-4">
-            <div class="aspect-w-3 aspect-h-2">
-              <img class="object-cover shadow-lg rounded-lg" src="{{artObject.primaryImageSmall}}">
-            </div>
+  <ol class="ml-8 flex items-center space-x-5">
+    <li>
+      <!-- Completed Step -->
 
-            <div class="space-y-2">
-              <div class="text-lg leading-6 font-medium space-y-1">
-                <h3>Lindsay Walton</h3>
-                <p class="text-indigo-600">Front-end Developer</p>
+      <a *ngIf="zoomPer==50" (click)="zoomLevel(50)" class="relative flex items-center justify-center"
+        aria-current="step">
+        <span class="absolute w-5 h-5 p-px flex" aria-hidden="true">
+          <span class="w-full h-full rounded-full bg-indigo-200"></span>
+        </span>
+        <span class="relative block w-2.5 h-2.5 bg-indigo-600 rounded-full" aria-hidden="true"></span>
+      </a>
+      <a *ngIf="zoomPer!=50" (click)="zoomLevel(50)"
+        class="block w-2.5 h-2.5 bg-indigo-600 rounded-full hover:bg-indigo-900">
+      </a>
+    </li>
+
+    <li>
+
+      <a *ngIf="zoomPer==50" (click)="zoomLevel(75)"
+        class="block w-2.5 h-2.5 bg-gray-200 rounded-full hover:bg-gray-400">
+      </a>
+      <a *ngIf="zoomPer==100" (click)="zoomLevel(75)"
+        class="block w-2.5 h-2.5 bg-indigo-600 rounded-full hover:bg-indigo-900">
+      </a>
+      <a *ngIf="zoomPer==75" (click)="zoomLevel(75)" class="relative flex items-center justify-center"
+        aria-current="step">
+        <span class="absolute w-5 h-5 p-px flex" aria-hidden="true">
+          <span class="w-full h-full rounded-full bg-indigo-200"></span>
+        </span>
+        <span class="relative block w-2.5 h-2.5 bg-indigo-600 rounded-full" aria-hidden="true"></span>
+      </a>
+    </li>
+
+    <li>
+      <a *ngIf="zoomPer==100" (click)="zoomLevel(100)" class="relative flex items-center justify-center"
+        aria-current="step">
+        <span class="absolute w-5 h-5 p-px flex" aria-hidden="true">
+          <span class="w-full h-full rounded-full bg-indigo-200"></span>
+        </span>
+        <span class="relative block w-2.5 h-2.5 bg-indigo-600 rounded-full" aria-hidden="true"></span>
+      </a>
+
+      <a *ngIf="zoomPer!=100" (click)="zoomLevel(100)"
+        class="block w-2.5 h-2.5 bg-gray-200 rounded-full hover:bg-gray-400">
+      </a>
+    </li>
+
+  </ol>
+
+  <span class=" px-4 relative z-0 inline-flex shadow-sm rounded-md">
+    <button (click)="lessZoom()" type="button"
+      class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
+      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+        aria-hidden="true">
+        <path fill-rule="evenodd"
+          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+          clip-rule="evenodd" />
+      </svg>
+    </button>
+    <button (click)="moreZoom()" type="button"
+      class="-ml-px relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
+      <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+        aria-hidden="true">
+        <path fill-rule="evenodd"
+          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+          clip-rule="evenodd" />
+      </svg>
+    </button>
+  </span>
+
+</nav>
+
+
+
+<div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+  <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">{{title | titlecase}} </h2>
+  <p class="text-xl text-gray-500">Click on the Art Object for more details</p>
+</div>
+
+
+
+
+
+
+<div *ngIf="zoomPer==50" class="bg-white">
+
+  <div class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+    <div class="space-y-8 sm:space-y-12">
+
+      <ul
+        class="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6">
+        <li *ngFor="let artObject of artObjects">
+          <div [routerLink]="['object', artObject.objectID ]" class="cursor-pointer">
+            <div class="space-y-4">
+              <img class="mx-auto h-20 w-20 rounded-full lg:w-24 lg:h-24" src="{{artObject.primaryImageSmall}}" alt="">
+              <div class="space-y-2">
+                <div class="text-xs font-medium lg:text-sm">
+                  <h3>{{artObject.objectName}}</h3>
+                  <p class="text-indigo-600">{{artObject.objectDate}}</p>
+                </div>
               </div>
-              <ul class="flex space-x-5">
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-gray-500">
-                    <span class="sr-only">Twitter</span>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="text-gray-400 hover:text-gray-500">
-                    <span class="sr-only">LinkedIn</span>
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd" />
-                    </svg>
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </li>
 
-        <!-- More items... -->
       </ul>
     </div>
   </div>
+
+
 </div>
 
 
@@ -58,81 +126,82 @@
 
 
 
-
-
-
-
-
-
-
-<ul *ngFor="let coll of collection.objectIDs;let indice=index">
-
-  {{indice+1}}
-    <a  [routerLink]="['object', coll]">{{coll}}</a>
-
-</ul>
-
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-    <div class="flex-1 flex justify-between sm:hidden">
-      <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500">
-        Previous
-      </a>
-      <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:text-gray-500">
-        Next
-      </a>
-    </div>
-    <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-      <div>
-        <p class="text-sm text-gray-700">
-          Showing
-          <span class="font-medium">1</span>
-          to
-          <span class="font-medium">10</span>
-          of
-          <span class="font-medium">97</span>
-          results
-        </p>
-      </div>
-      <div>
-        <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-          <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-            <span class="sr-only">Previous</span>
-            <!-- Heroicon name: solid/chevron-left -->
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
-            </svg>
-          </a>
-          <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-            1
-          </a>
-          <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-            2
-          </a>
-          <a href="#" class="hidden md:inline-flex relative items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-            3
-          </a>
-          <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
-            ...
-          </span>
-          <a href="#" class="hidden md:inline-flex relative items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-            8
-          </a>
-          <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-            9
-          </a>
-          <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
-            10
-          </a>
-          <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
-            <span class="sr-only">Next</span>
-            <!-- Heroicon name: solid/chevron-right -->
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-            </svg>
-          </a>
-        </nav>
-      </div>
+<div *ngIf="zoomPer==75" class="bg-white">
+  <div class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+    <div class="space-y-12">
+
+      <ul class="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
+        <li *ngFor="let artObject of artObjects">
+          <div [routerLink]="['object', artObject.objectID ]" class="cursor-pointer">
+
+          <div class="space-y-6">
+
+            <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" src="{{artObject.primaryImageSmall}}" alt="">
+            <div class="text-lg leading-6 font-medium space-y-1">
+              <h3>{{artObject.objectName}}</h3>
+              <p class="text-indigo-600">{{artObject.objectDate}}</p>
+            </div>
+          </div>
+        </div>
+        </li>
+
+      </ul>
     </div>
   </div>
+</div>
+
+
+
+<div *ngIf="zoomPer == 100" class="bg-white">
+  <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+    <div class="space-y-12">
+
+      <ul class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+        <div *ngFor="let artObject of artObjects">
+
+          <div [routerLink]="['object', artObject.objectID ]" class="cursor-pointer">
+
+          <li>
+            
+            <div *ngIf="artObject.primaryImageSmall">
+              <div class="space-y-4">
+                <div class="aspect-w-3 aspect-h-2">
+                  <img class="object-cover shadow-lg rounded-lg" src="{{artObject.primaryImageSmall}}">
+                </div>
+
+                <div class="space-y-2">
+                  <div class="text-lg leading-6 font-medium space-y-1">
+                    <h3>{{artObject.objectName}}</h3>
+                    <p class="text-indigo-600">{{artObject.objectDate}}</p>
+                    <p *ngIf="artObject.city!" class="text-indigo-600">{{artObject.country}} </p>
+                    <p *ngIf="artObject.city || artObject.state" class="text-indigo-600">{{artObject.city}} -
+                      {{artObject.state}} </p>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </li>
+        </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- More items... 
+
+<ul *ngFor="let coll of collection.objectIDs">
+
   
+    <a  [routerLink]="['object', coll]">{{coll}}</a>
+collection/cat/object/789
+</ul>
+-->

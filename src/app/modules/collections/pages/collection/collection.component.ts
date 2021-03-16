@@ -12,31 +12,60 @@ import { CollectionResponse } from 'src/app/shared/models/collection-response';
 })
 export class CollectionComponent implements OnInit {
   public collection: CollectionResponse;
-  public artObject: ArtObjectResponse;
+  public objectsIds = [];
+  public artObjects: ArtObjectResponse[] = [];
+  public zoomPer: number = 50;
+  public title = '';
 
-  public paginator: number[];
 
   constructor(
     private artObjectService: ArtObjectService,
     private collectionsService: CollectionsService,
     private activatedRoute: ActivatedRoute
 
-  ) { 
+  ) {
 
     activatedRoute.params.subscribe(params => {
       console.log('params -->', params);
-      collectionsService.getCollectionById(params.id).subscribe(respCharacter => {
-        this.collection = respCharacter;
+
+      collectionsService.getCollectionBySearch(params.search).subscribe(resp => {
+        this.collection = resp;
+        this.title = params.search + ' collection';
+        for (var i = 0; i < 30; i++) {
+          var num = this.collection.objectIDs[i];
+          artObjectService.getObjectById(num).subscribe(resp => {
+            this.artObjects.push(resp)
+          });
+          this.objectsIds.push(num);
+        }
       })
     });
+  }
 
-    artObjectService.getObjectById(444).subscribe(resp => {
-      this.artObject = resp;
-    });
+  ngOnInit() { }
+
+
+
+  zoomLevel(zoomPick: number) {
+
+    this.zoomPer = zoomPick;
+    console.log('zoom', this.zoomPer);
+  }
+
+  moreZoom() {
+    if (this.zoomPer < 100) {
+      this.zoomPer += 25;
+    }
+
+  }
+  lessZoom() {
+    if (this.zoomPer > 50) {
+      this.zoomPer -= 25;
+    }
 
   }
 
-  ngOnInit() {
-  }
+
+
 
 }

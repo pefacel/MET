@@ -17,9 +17,11 @@ export class CollectionsService {
   }
 
 
-
   getCollectionById(id: any): Observable<CollectionResponse> {
     return this.httpClient.get<CollectionResponse>(environment.endpointCollection + id);
+  }
+  getCollectionBySearch(search: any): Observable<CollectionResponse> {
+    return this.httpClient.get<CollectionResponse>(environment.endpointSearch + search);
   }
 
 

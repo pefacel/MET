@@ -10,7 +10,7 @@ import { CollectionsResponse } from 'src/app/shared/models/collections-response'
 export class CollectionsComponent implements OnInit {
   public collections: CollectionsResponse;
 
-  constructor(private collectionsService: CollectionsService) { 
+  constructor(private collectionsService: CollectionsService) {
 
 
     collectionsService.getCollections().subscribe(resp => {
@@ -20,5 +20,13 @@ export class CollectionsComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
+
+
+
 }
+
+
+
+

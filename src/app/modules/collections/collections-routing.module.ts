@@ -19,7 +19,7 @@ const routes: Routes =
             { path: '', component: CollectionsComponent },
 
             {
-              path: 'collection/:id',
+              path: 'collection/:search',
 
               children: [
                 { path: '', component: CollectionComponent },

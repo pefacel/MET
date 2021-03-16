@@ -19,9 +19,7 @@ export class ArtObjectComponent implements OnInit {
 
       activatedRoute.params.subscribe(params => {
         console.log('params -->', params);
-        artObjectService.getObjectById(params.id).subscribe(respCharacter => {
-          this.artObject = respCharacter;
-        })
+       artObjectService.getObjectById(params.id).subscribe(resp => {this.artObject = resp;});
       })
 
 
