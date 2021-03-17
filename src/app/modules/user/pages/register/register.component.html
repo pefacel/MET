@@ -11,19 +11,38 @@
             </h2>
 
         </div>
-        <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="mt-8 space-y-6" autocomplete="off" >
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="mt-8 space-y-6" autocomplete="off" >  
             <div class="rounded-md shadow-sm -space-y-px">
+               
+              <div>
+                <label class="sr-only">name</label>
+                <div class="form-group">
+                    <input id="name" name="name" type="form-control"  required
+                        class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        placeholder="name"
+                        formControlName="name">                      
+                </div>
+            </div>
+            <div>
+              <label class="sr-only">phoneNumber</label>
+              <div class="form-group">
+                  <input id="phoneNumber" name="phoneNumber" type="form-control"  required
+                      class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                      placeholder="phoneNumber"
+                      formControlName="phoneNumber">                      
+              </div>
+          </div>
+
+
+
                 <div>
                     <label class="sr-only">Email</label>
                     <div class="form-group">
-
                         <input id="email" name="email" type="form-control"  required
                             class="form-control appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                             placeholder="Email address"
-                            formControlName="email">
-                            
+                            formControlName="email">                      
                     </div>
-                    
                 </div>
 
 
@@ -123,7 +142,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </span>
-                    Registrarse
+                    Register
                 </button>
             </div>
 
@@ -142,7 +161,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </span>
-                    Login
+                    Register
                 </button>
             </div>
 
@@ -152,3 +171,4 @@
 
     </div>
 </div>
+

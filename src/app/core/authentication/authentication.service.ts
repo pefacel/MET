@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthenticationService {
 
   constructor(
-    private angularFireAuth: AngularFireAuth
+    private angularFireAuth: AngularFireAuth,
+    public  router:  Router
 
   ) { }
 
@@ -16,6 +18,8 @@ export class AuthenticationService {
     try {
       const respAuth = await this.angularFireAuth.signInWithEmailAndPassword(email,pass);
       console.log('resp Auth -->', respAuth);
+      this.router.navigate(['user/details']);
+
     } catch (error) {
       console.error('error auth -->', error);
     }

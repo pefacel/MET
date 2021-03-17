@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
+import { DatabaseService } from 'src/app/core/services/database.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,9 @@ export class LoginComponent implements OnInit {
   
     constructor(
   
-      private authService: AuthenticationService
+      private authService: AuthenticationService,
+      private databaseService: DatabaseService
+
     ) { }
   
     ngOnInit(): void {
@@ -29,7 +32,7 @@ export class LoginComponent implements OnInit {
   
       this.authService.login(this.loginForm.value.email, this.loginForm.value.pass).then(resp => {
   
-        console.log('reponse:', resp)
+        console.log('reponse login:', resp)
   
       }).catch(error => {
   
