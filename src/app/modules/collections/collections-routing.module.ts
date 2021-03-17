@@ -6,41 +6,25 @@ import { CollectionsComponent } from './pages/collections/collections.component'
 
 
 const routes: Routes =
-
-
-
   [
+    {path: '', children: 
+      [
+        {path: '', children:
+            [
+              {path: '', component: CollectionsComponent },
 
-    {
-      path: '', children: [
-        {
-          path: '',
-          children: [
-            { path: '', component: CollectionsComponent },
+              {path: 'collection/:search', children:
+                  [
+                    { path: '', component: CollectionComponent },
+                    { path: 'object/:id', component: ArtObjectComponent },
+                  ]
 
-            {
-              path: 'collection/:search',
-
-              children: [
-                { path: '', component: CollectionComponent },
-
-                { path: 'object/:id', component: ArtObjectComponent },
-              ]
-
-            },
-          ]
+              },
+            ]
 
         },
-
-
-
       ]
     }
-
-
-
-
-
   ];
 
 

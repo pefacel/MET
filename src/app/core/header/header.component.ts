@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
   public logout: any;
 
   constructor(
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+
 
   ) { }
 
@@ -34,7 +35,23 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  toLogout(): void {}
+  toLogout(): void {
+
+    this.authService.logout().then(resp => {
+
+      try {
+        console.log('logout exitoso  ==>', resp)
+
+      } catch (error) {
+        console.log('error logout  ==>', error)
+
+      }
+
+
+
+    })
+
+  }
 
 
 }
