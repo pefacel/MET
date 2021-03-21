@@ -1,3 +1,4 @@
+<app-header (myEvent)="faxx($event)" [ejercicio]="hola"></app-header>
 
 
 
@@ -11,7 +12,7 @@
             </h2>
 
         </div>
-        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="mt-8 space-y-6" action="#" method="POST">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="mt-8 space-y-6" >
             <input type="hidden" name="remember" value="true">
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>

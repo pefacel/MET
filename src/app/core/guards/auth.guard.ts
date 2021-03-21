@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
       if (resp != null) {
         console.log('guard pass!!');
         this.logged = true;
-        this.router.navigate(['collections']);
+        this.router.navigate(['user/details']);
 
       } else {
         this.logged = false;

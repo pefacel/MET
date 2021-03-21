@@ -3,5 +3,7 @@ export interface UserResponse {
     name: string,
     phoneNumber: string,
     profile: string,
-    uid: string
+    uid: string,
+    favObjs : [];
+
 }

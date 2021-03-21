@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
         phoneNumber: this.registerForm.value.phoneNumber,
         profile: '',
         uid: resp.uid,
+        favObjs:[]
 
       }
 

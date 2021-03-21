@@ -11,6 +11,9 @@ import { ArtObjectResponse } from 'src/app/shared/models/art-object-response';
 export class ArtObjectComponent implements OnInit {
   public artObject: ArtObjectResponse;
 
+
+
+
   constructor(
     private artObjectService: ArtObjectService,
     private activatedRoute: ActivatedRoute

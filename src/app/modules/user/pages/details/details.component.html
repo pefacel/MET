@@ -1,27 +1,169 @@
-<p>details works!</p>
-<!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-indigo-50">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
-      <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
-        <span class="block">Ready to dive in?</span>
-        <span class="block text-indigo-600">Start exploring the collections</span>
-      </h2>
-      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-        <div class="inline-flex rounded-md shadow">
-          <a routerLink="/collections" class="cursor-pointer inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
-            Collections
-          </a>
+        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
+            <span class="block">Ready to...</span>
+            <span class="block text-indigo-600">dive in the collections?</span>
+        </h2>
+        <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+            <div class="inline-flex rounded-md shadow">
+                <a routerLink="/collections"
+                    class="cursor-pointer inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                    Go!
+                </a>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+
+<div class="bg-green-50">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
+            <span class="block">Edit your... </span>
+            <span class="block text-green-600">personal information</span>
+        </h2>
+        <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+            <div class="inline-flex rounded-md shadow">
+                <a routerLink="/collections"
+                    class="cursor-pointer inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700">
+                    Edit!
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-yellow-50">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
+            <span class="block">Save your... </span>
+            <span class="block text-yellow-600">favorites collections</span>
+        </h2>
+        <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
 
 
-  
-  <ul>
+            <div class="inline-flex rounded-md shadow">
+                <a (click)="seeFav()"
+                    class="cursor-pointer inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700">
+                    See!
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="favOK" class="bg-yellow-50 p-16">
+
+
+
+
+
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-6">
+        <div *ngFor="let fav of favCollections">
+
+            <div routerLink="/collections/collection/{{fav}}"
+                class="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                <div class="flex-shrink-0">
+                </div>
+                <div class="flex-1 min-w-0">
+                    <a class="focus:outline-none">
+                        <span class="absolute inset-0" aria-hidden="true"></span>
+                        <p class="text-sm font-medium text-gray-900">
+                            {{fav}}
+                        </p>
+
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div>
+
+            <div
+                class="relative rounded-lg border border-gray-300 bg-white px-6 py-4 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                <div class="flex-shrink-0">
+                </div>
+                <span class="flex h-5 w-5">
+                    <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <div class="flex-1 min-w-0 ">
+
+
+                    <div>
+
+                        <label  class="block text-sm font-medium text-gray-700">Add new</label>
+                        <div class="mt-1">
+                            <input  #box (keyup.enter)="setFav(box.value)" type="text" 
+                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                placeholder="Japan">
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+<app-header [childMessage]="parentMessage"></app-header>
+
+
+
+
+<ul>
     <li>email: {{ myUser.email }}</li>
     <li>uid: {{ myUser.uid }}</li>
     <li>name: {{ myUser.name }}</li>
     <li>Phone number: {{ myUser.phoneNumber }}</li>
+
+
+
+</ul>
+
+
+
+<ul *ngFor="let fav of favCollections">
+    <li>{{fav}}</li>
+
+
+
+
+
+</ul>
+
+
+<input #box (keyup.enter)="onKey(box.value)">
+<p>{{values}}</p>
+
+
+<ul *ngFor="let fav of values">
+    <li>{{fav}}</li>
 
 </ul>

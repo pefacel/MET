@@ -5,6 +5,8 @@ import { AuthenticationService } from 'src/app/core/authentication/authenticatio
 import { DatabaseService } from 'src/app/core/services/database.service';
 import { UserResponse } from 'src/app/shared/models/user-response';
 import { takeUntil } from 'rxjs/operators'
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -13,14 +15,20 @@ import { takeUntil } from 'rxjs/operators'
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
- 
+  parentMessage = "message from parent"
+
+  public favOK:boolean=false;
+  public favCollections=[];
+
+
+
   public myUser: UserResponse = {
     email: '',
     phoneNumber: '',
     profile: '',
     name: '',
-    uid: ''
-
+    uid: '',
+   favObjs : []
   }
 
   public uid: string;
@@ -28,7 +36,7 @@ export class DetailsComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private databaseService: DatabaseService,
-
+    private router: Router
 
   ) {
     this.authService.currentUSer().then(async resp => {
@@ -40,6 +48,8 @@ export class DetailsComponent implements OnInit {
       console.log('error user', error);
 
     })
+
+
 
   }
 
@@ -58,22 +68,33 @@ export class DetailsComponent implements OnInit {
         phoneNumber: data.phoneNumber,
         profile: data.profile,
         name: data.name,
-        uid: data.uid
+        uid: data.uid,
+        favObjs: data.favObjs
       }
       console.log('my user ---> ', this.myUser);
-
     })
+
+
+
     console.log('localStorage email  ---> ', localStorage.getItem('email'));
 
-  }
-
-
-  ngOnDestroy() {
-
-console.log('service desuscrito -->', this.serviceSuscription);
-this.serviceSuscription.next(false);
-this.serviceSuscription.complete();
 
   }
+
+
+  seeFav() {
+    this.favOK = this.favOK === false ? true : false;
+ }
+    
+
+ setFav(fav: string) {
+  
+this.favCollections.push(fav);
+
+this.router.navigate(['/collections/collection/' + fav]);
+
+}
+
+
 
 }

@@ -34,11 +34,27 @@ export class LoginComponent implements OnInit {
   
         console.log('reponse login:', resp)
   
+
+
       }).catch(error => {
   
         console.error(error)
       })
   
     }
+
+    hola ='hola q tal';
+
+    faxx(param: any){
+
+      console.log('event', param);
+  
+    }
+
+
+
+
+
+
 
 }
