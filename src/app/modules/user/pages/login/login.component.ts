@@ -43,13 +43,7 @@ export class LoginComponent implements OnInit {
   
     }
 
-    hola ='hola q tal';
 
-    faxx(param: any){
-
-      console.log('event', param);
-  
-    }
 
 
 

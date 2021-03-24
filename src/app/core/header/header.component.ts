@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
 
   
 
-  @Input() childMessage: string;
 
 
 
@@ -33,50 +32,18 @@ export class HeaderComponent implements OnInit {
   public uid: string;
   private serviceSuscription: Subject<boolean> = new Subject();
   constructor(
-    private authService: AuthenticationService,
-    private databaseService: DatabaseService,
-    private router: Router
+
 
   ) { 
 
-    this.authService.currentUSer().then(async resp => {
 
-      console.log('usuario actual', resp);
-      this.uid = resp.uid;
-
-    }).catch(error => {
-      console.log('error user', error);
-
-    })
 
 
   }
 
   ngOnInit(): void {
 
-    
-    this.databaseService.getUser(this.uid).pipe(takeUntil(this.serviceSuscription)).subscribe(data => {
-
-      console.log('Authservice: ', data);
-      this.myUser = {
-
-        email: data.email,
-        phoneNumber: data.phoneNumber,
-        profile: data.profile,
-        name: data.name,
-        uid: data.uid,
-        favObjs: data.favObjs
-      }
-      console.log('my user ---> ', this.myUser);
-    })
-
-
-
-    console.log('localStorage email  ---> ', localStorage.getItem('email'));
-
-
-
-
+  
   }
 
   setMostrar(): void {
@@ -91,23 +58,7 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  toLogout(): void {
 
-    this.authService.logout().then(resp => {
-
-      try {
-        console.log('logout exitoso  ==>', resp)
-
-      } catch (error) {
-        console.log('error logout  ==>', error)
-
-      }
-
-
-
-    })
-
-  }
 
 
 }
