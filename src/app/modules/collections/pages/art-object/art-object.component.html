@@ -12,7 +12,7 @@
     <div class="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
       <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-          <div class="px-4 py-5 sm:px-6">
+          <div  class="px-4 py-5 sm:px-6">
             <h3 class="text-lg leading-6 font-medium text-gray-900">
               {{artObject.title}}
             </h3>
@@ -30,14 +30,14 @@
                   {{artObject.artistDisplayName}}
                 </dd>
               </div>
-              <div class="sm:col-span-1">
+              <div *ngIf="artObject.department" class="sm:col-span-1">
                 <dt class="text-sm font-medium text-gray-500">
                   Collection </dt>
                 <dd class="mt-1 text-sm text-gray-900">
                   {{artObject.department}}
                 </dd>
               </div>
-              <div class="sm:col-span-1">
+              <div *ngIf="artObject.country" class="sm:col-span-1">
                 <dt class="text-sm font-medium text-gray-500">
                   Country
                 </dt>
@@ -45,7 +45,7 @@
                   {{artObject.country}}
                 </dd>
               </div>
-              <div class="sm:col-span-1">
+              <div *ngIf="artObject.region" class="sm:col-span-1">
                 <dt class="text-sm font-medium text-gray-500">
                   Region
                 </dt>
@@ -53,7 +53,50 @@
                   {{artObject.region}}
                 </dd>
               </div>
-              <div class="sm:col-span-2">
+              <div *ngIf="artObject.culture" class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">
+                  Culture
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900">
+                  {{artObject.culture}} </dd> 
+              </div>
+
+              <div *ngIf="artObject.dynasty" class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">
+                  Dynasty
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900">
+                  {{artObject.dynasty}} </dd> 
+              </div>
+              <div *ngIf="artObject.reign" class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">
+                  Reign
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900">
+                  {{artObject.reign}} </dd> 
+              </div>
+              <div *ngIf="artObject.dimensions" class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">
+                  Dimensions
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900">
+                  {{artObject.dimensions}} </dd> 
+              </div>
+              <div *ngIf="artObject.classification" class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">
+                  Classification
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900">
+                  {{artObject.classification}} </dd> 
+              </div>
+              <div *ngIf="artObject.creditLine" class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">
+                  Credit Line
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900">
+                  {{artObject.creditLine}} </dd> 
+              </div>
+              <div *ngIf="artObject.artistDisplayBio" class="sm:col-span-2">
                 <dt class="text-sm font-medium text-gray-500">
                   Bio Artist
                 </dt>

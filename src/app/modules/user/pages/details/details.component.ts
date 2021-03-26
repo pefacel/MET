@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  Input,  OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
@@ -15,7 +15,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  parentMessage = "message from parent"
+  
+
 
   public favOK:boolean=false;
   public favCollections=[];

@@ -14,12 +14,16 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './modules/contact/contact.component';
+import { DepartmentsComponent } from './modules/departments/departments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    ContactComponent,
+    DepartmentsComponent,
     
   ],
   imports: [

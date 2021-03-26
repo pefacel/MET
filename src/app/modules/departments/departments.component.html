@@ -1,0 +1,76 @@
+
+
+<div class="relative bg-white pt-16 pb-32 overflow-hidden">
+    <div *ngFor="let dep of departments; let o = odd; let e = even" class="relative py-12">
+        <div *ngIf="o" class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
+            <div class="mt-12 sm:mt-16 lg:mt-0">
+                <div class="  lg:px-0 lg:m-0 lg:relative lg:h-full">
+                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                        src="{{dep.img}}" alt="Inbox user interface">
+                </div>
+            </div>
+            <div class=" max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
+                <div>
+   
+                    <div class="mt-6">
+                        
+                        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
+                           {{dep.name}}
+                        </h2>
+                        <p class="mt-4 text-lg text-gray-500">
+                            {{dep.description}}
+                        </p>
+                        <div class="mt-6">
+                            <a routerLink="/collections/collection/{{dep.name}}"
+                                class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                                Explore
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 border-t border-gray-200 pt-6">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div *ngIf="e" class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
+
+            <div class=" max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
+                <div>
+   
+                    <div class="mt-6">
+                        
+                        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
+                           {{dep.name}}
+                        </h2>
+                        <p class="mt-4 text-lg text-gray-500">
+                            {{dep.description}}
+                        </p>
+                        <div class="mt-6">
+                            <a routerLink="/collections/collection/{{dep.name}}"
+                                class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                                Explore
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 border-t border-gray-200 pt-6">
+
+                </div>
+            </div>
+            <div class="mt-12 sm:mt-16 lg:mt-0">
+                <div class="  lg:px-0 lg:m-0 lg:relative lg:h-full">
+                    <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                        src="{{dep.img}}" alt="Inbox user interface">
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
