@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './modules/contact/contact.component';
 import { DepartmentsComponent } from './modules/departments/departments.component';
+import { SearchComponent } from './shared/components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DepartmentsComponent } from './modules/departments/departments.componen
     FooterComponent,
     ContactComponent,
     DepartmentsComponent,
+    SearchComponent,
     
   ],
   imports: [

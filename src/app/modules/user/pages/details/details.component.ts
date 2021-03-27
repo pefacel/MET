@@ -6,6 +6,7 @@ import { DatabaseService } from 'src/app/core/services/database.service';
 import { UserResponse } from 'src/app/shared/models/user-response';
 import { takeUntil } from 'rxjs/operators'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SearchService } from 'src/app/core/services/search.service';
 
 
 
@@ -18,9 +19,13 @@ export class DetailsComponent implements OnInit {
   
 
 
-  public favOK:boolean=false;
+  public hisOK:boolean=false;
   public favCollections=[];
+  get historial() {
 
+    return this.searchService.historial;
+
+  }
 
 
   public myUser: UserResponse = {
@@ -34,10 +39,12 @@ export class DetailsComponent implements OnInit {
 
   public uid: string;
   private serviceSuscription: Subject<boolean> = new Subject();
+  
   constructor(
     private authService: AuthenticationService,
     private databaseService: DatabaseService,
-    private router: Router
+    private router: Router,
+    private searchService:SearchService
 
   ) {
     this.authService.currentUSer().then(async resp => {
@@ -83,8 +90,8 @@ export class DetailsComponent implements OnInit {
   }
 
 
-  seeFav() {
-    this.favOK = this.favOK === false ? true : false;
+  seeHis() {
+    this.hisOK = this.hisOK === false ? true : false;
  }
     
 

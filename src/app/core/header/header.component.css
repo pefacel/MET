@@ -1,6 +1,7 @@
-.active { 
+ .active { 
 
 
-    background-color: rgb(250, 219, 219);
-    color: rgb(39, 21, 17);
-}
+
+ color: #111827;
+ border-color: #6366F1;	
+} 

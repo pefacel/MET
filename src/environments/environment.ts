@@ -13,7 +13,9 @@ export const environment = {
   
   endpointCollections: 'https://collectionapi.metmuseum.org/public/collection/v1/departments',
   endpointCollection: 'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=',
-  endpointSearch: 'https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q='
+  // endpointSearch: 'https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&q='
+  endpointSearch: 'https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q='
+  
 
 
 };

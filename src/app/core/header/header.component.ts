@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { UserResponse } from 'src/app/shared/models/user-response';
 import { AuthenticationService } from '../authentication/authentication.service';
@@ -12,39 +12,27 @@ import { EventEmitter } from 'events';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
 
   
 
 
+  mostrar: boolean = false;
 
+  showHead: boolean = false;
 
-  public mostrar: boolean = false;
-  public logout: any;
-  public myUser: UserResponse = {
-    email: '',
-    phoneNumber: '',
-    profile: '',
-    name: '',
-    uid: '',
-   favObjs : []
-  }
-  public uid: string;
-  private serviceSuscription: Subject<boolean> = new Subject();
-  constructor(
+  constructor(private router: Router) {
+    // on route change to '/login', set the variable showHead to false
+      router.events.forEach((event) => {
+        if (event instanceof NavigationStart) {
+          if (event['url'] == '/user/details') {
+            this.showHead = true;
+            console.log("logged")
 
-
-  ) { 
-
-
-
-
-  }
-
-  ngOnInit(): void {
-
-  
-  }
+          } 
+        }
+      });
+    }
 
   setMostrar(): void {
 

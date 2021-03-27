@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.pass).then(resp => {
   
         console.log('reponse login:', resp)
-  
+
 
 
       }).catch(error => {

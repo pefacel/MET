@@ -14,7 +14,7 @@ export class CollectionComponent implements OnInit {
   public collection: CollectionResponse;
   public objectsIds = [];
   public artObjects: ArtObjectResponse[] = [];
-  public zoomPer: number = 50;
+  public zoomPer: number = 75;
   public title = '';
 
 
