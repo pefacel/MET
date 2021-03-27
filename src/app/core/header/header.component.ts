@@ -21,6 +21,8 @@ export class HeaderComponent  {
 
   showHead: boolean = false;
 
+  user: string = '';
+
   constructor(private router: Router) {
     // on route change to '/login', set the variable showHead to false
       router.events.forEach((event) => {
@@ -32,6 +34,9 @@ export class HeaderComponent  {
           } 
         }
       });
+
+this.user = localStorage.getItem('email');
+
     }
 
   setMostrar(): void {

@@ -18,6 +18,8 @@ export class SearchComponent  {
     if(valor.trim().length === 0) {return;}
 
     this.searchService.searchCollection(valor);
+    localStorage.setItem('lastSearch', valor);
+
     this.txtSearch.nativeElement.value = '';
     // this.router.navigate(['/collections/collection/' + valor]);
     this.router.navigate(['/collections/loading/' + valor]);

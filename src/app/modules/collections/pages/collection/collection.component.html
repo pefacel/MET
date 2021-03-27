@@ -93,10 +93,10 @@
 
       <ul
         class="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6">
-        <li *ngFor="let artObject of artObjects">
+        <li *ngFor="let artObject of artObjects" >
           <div [routerLink]="['object', artObject.objectID ]" class="cursor-pointer">
             <div class="space-y-4">
-              <img class="mx-auto h-20 w-20 rounded-full lg:w-24 lg:h-24" src="{{artObject.primaryImageSmall}}" alt="">
+              <img class="animate__animated animate__fadeIn mx-auto h-20 w-20 rounded-full lg:w-24 lg:h-24" src="{{artObject.primaryImageSmall}}" alt="">
               <div class="space-y-2">
                 <div class="text-xs font-medium lg:text-sm">
                   <h3>{{artObject.objectName}}</h3>
@@ -136,7 +136,7 @@
 
           <div class="space-y-6">
 
-            <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" src="{{artObject.primaryImageSmall}}" alt="">
+            <img class="animate__animated animate__fadeIn mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" src="{{artObject.primaryImageSmall}}" alt="">
             <div class="text-lg leading-6 font-medium space-y-1">
               <h3>{{artObject.objectName}}</h3>
               <p class="text-indigo-600">{{artObject.objectDate}}</p>
@@ -166,7 +166,7 @@
             <div *ngIf="artObject.primaryImageSmall">
               <div class="space-y-4">
                 <div class="aspect-w-3 aspect-h-2">
-                  <img class="object-cover shadow-lg rounded-lg" src="{{artObject.primaryImageSmall}}">
+                  <img class="animate__animated animate__fadeIn object-cover shadow-lg rounded-lg" src="{{artObject.primaryImageSmall}}">
                 </div>
 
                 <div class="space-y-2">

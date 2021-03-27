@@ -31,7 +31,7 @@ export class CollectionComponent implements OnInit {
       collectionsService.getCollectionBySearch(params.search).subscribe(resp => {
         this.collection = resp;
         this.title = params.search + ' collection';
-        for (var i = 0; i < 30; i++) {
+        for (var i = 0; i < 100; i++) {
           var num = this.collection.objectIDs[i];
           artObjectService.getObjectById(num).subscribe(resp => {
             this.artObjects.push(resp)

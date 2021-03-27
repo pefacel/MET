@@ -81,29 +81,27 @@
         </a>
 
         <!-- Profile dropdown -->
-        <div *ngIf="showHead" (click)="setMostrar()" class="ml-4 relative flex-shrink-0">
-          <div>
-            <button type="button"
-              class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              id="user-menu" aria-expanded="false" aria-haspopup="true">
-              <span class="inline-block h-10 w-10 rounded-full overflow-hidden bg-gray-100">
-                <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </span>
-            </button>
-          </div>
+        <div *ngIf="showHead"  class="ml-4 relative flex-shrink-0">
+          <!-- This example requires Tailwind CSS v2.0+ -->
+          <a class="flex-shrink-0 group block">
+            <div class="flex items-center">
+              <div routerLink="/user/details" class="cursor-pointer">
+                <img  class="inline-block h-9 w-9 rounded-full"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=KTNZpN6za9&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt="">
+              </div>
+              <div class="ml-3">
+                <p routerLink="/user/details" class="cursor-pointer text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                  {{user}}
+                </p>
+                <p routerLink="/user/details"  class="cursor-pointer text-xs font-medium text-gray-500 group-hover:text-gray-700">
+                  View profile
+                </p>
+              </div>
+            </div>
+          </a>
 
 
-          <div *ngIf="mostrar"
-            class="z-40 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-            role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-            <a routerLink="/user/details" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              role="menuitem">Your Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
-          </div>
         </div>
       </div>
     </div>

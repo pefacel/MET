@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
-import { FooterComponent } from './core/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from '@angular/fire';
@@ -17,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './modules/contact/contact.component';
 import { DepartmentsComponent } from './modules/departments/departments.component';
 import { SearchComponent } from './shared/components/search/search.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [

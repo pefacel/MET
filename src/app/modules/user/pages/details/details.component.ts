@@ -80,11 +80,12 @@ export class DetailsComponent implements OnInit {
         favObjs: data.favObjs
       }
       console.log('my user ---> ', this.myUser);
+      localStorage.setItem('email', this.myUser.email );
+      console.log('localStorage email  ---> ', localStorage.getItem('email'));
+  
     })
 
 
-
-    console.log('localStorage email  ---> ', localStorage.getItem('email'));
 
 
   }
