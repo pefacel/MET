@@ -17,6 +17,8 @@ import { ContactComponent } from './modules/contact/contact.component';
 import { DepartmentsComponent } from './modules/departments/departments.component';
 import { SearchComponent } from './shared/components/search/search.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { MayusculasPipe } from './shared/pipes/mayusculas.pipe';
+import { UpperLessAndOrPipe } from './shared/pipes/upper-less-and-or.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { FooterComponent } from './core/footer/footer.component';
     ContactComponent,
     DepartmentsComponent,
     SearchComponent,
+    MayusculasPipe,
+    UpperLessAndOrPipe,
     
   ],
   imports: [
