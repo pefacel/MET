@@ -1,4 +1,4 @@
-import { Component,  Input,  OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/authentication/authentication.service';
@@ -16,11 +16,11 @@ import { SearchService } from 'src/app/core/services/search.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  
 
+  public detOK: boolean = false;
 
-  public hisOK:boolean=false;
-  public favCollections=[];
+  public hisOK: boolean = false;
+  public favCollections = [];
   get historial() {
 
     return this.searchService.historial;
@@ -34,17 +34,17 @@ export class DetailsComponent implements OnInit {
     profile: '',
     name: '',
     uid: '',
-   favObjs : []
+    favObjs: []
   }
 
   public uid: string;
   private serviceSuscription: Subject<boolean> = new Subject();
-  
+
   constructor(
     private authService: AuthenticationService,
     private databaseService: DatabaseService,
     private router: Router,
-    private searchService:SearchService
+    private searchService: SearchService
 
   ) {
     this.authService.currentUSer().then(async resp => {
@@ -66,7 +66,7 @@ export class DetailsComponent implements OnInit {
 
 
 
-    
+
     this.databaseService.getUser(this.uid).pipe(takeUntil(this.serviceSuscription)).subscribe(data => {
 
       console.log('Authservice: ', data);
@@ -80,9 +80,9 @@ export class DetailsComponent implements OnInit {
         favObjs: data.favObjs
       }
       console.log('my user ---> ', this.myUser);
-      localStorage.setItem('email', this.myUser.email );
+      localStorage.setItem('email', this.myUser.email);
       console.log('localStorage email  ---> ', localStorage.getItem('email'));
-  
+
     })
 
 
@@ -93,16 +93,20 @@ export class DetailsComponent implements OnInit {
 
   seeHis() {
     this.hisOK = this.hisOK === false ? true : false;
- }
-    
+  }
+  seeDet() {
+    this.detOK = this.detOK === false ? true : false;
+  }
 
- setFav(fav: string) {
-  
-this.favCollections.push(fav);
 
-this.router.navigate(['/collections/collection/' + fav]);
 
-}
+  setFav(fav: string) {
+
+    this.favCollections.push(fav);
+
+    this.router.navigate(['/collections/collection/' + fav]);
+
+  }
 
 
 

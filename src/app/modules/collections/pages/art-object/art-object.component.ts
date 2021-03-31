@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArtObjectService } from 'src/app/core/services/art-object.service';
 import { ArtObjectResponse } from 'src/app/shared/models/art-object-response';
 
@@ -16,7 +16,8 @@ export class ArtObjectComponent implements OnInit {
 
   constructor(
     private artObjectService: ArtObjectService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router:Router
 
     ) { 
 
@@ -32,5 +33,13 @@ export class ArtObjectComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+  goLink(link: string) {
+  
+    
+    this.router.navigate(['/collections/collection/' + link]);
+    
+    }
 
 }

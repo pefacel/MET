@@ -1,4 +1,5 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
+
+
 <nav class="flex py-4 items-center justify-center" aria-label="Progress">
   <p class="text-sm font-medium">Level of zoom</p>
 
@@ -74,7 +75,16 @@
 
 </nav>
 
-
+<div class="flex py-4 items-center justify-center">
+  <mat-paginator [length]="totalObjects"
+  [pageSize]="page_size"
+  [pageSizeOptions]=pageSizeOptions
+  (page)="handlePage($event)"
+  >
+  </mat-paginator>
+  
+  </div>
+  
 
 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
   <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">{{title | titlecase}} </h2>
@@ -82,6 +92,32 @@
 </div>
 
 
+
+
+
+<div *ngIf="zoomPer==75" class="bg-white">
+  <div class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
+    <div class="space-y-12">
+
+      <ul class="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
+        <li *ngFor="let artObject of artObjects | paginator:page_size:page_number">
+          <div [routerLink]="['object', artObject.objectID ]" class="cursor-pointer">
+
+          <div class="space-y-6">
+
+            <img class="animate__animated animate__fadeIn mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" src="{{artObject.primaryImageSmall}}" alt="">
+            <div class="text-lg leading-6 font-medium space-y-1">
+              <h3>{{artObject.objectName}}</h3>
+              <p class="text-indigo-600">{{artObject.objectDate}}</p>
+            </div>
+          </div>
+        </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>
 
 
 
@@ -93,7 +129,7 @@
 
       <ul
         class="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6">
-        <li *ngFor="let artObject of artObjects" >
+        <li *ngFor="let artObject of artObjects | paginator:page_size:page_number" >
           <div [routerLink]="['object', artObject.objectID ]" class="cursor-pointer">
             <div class="space-y-4">
               <img class="animate__animated animate__fadeIn mx-auto h-20 w-20 rounded-full lg:w-24 lg:h-24" src="{{artObject.primaryImageSmall}}" alt="">
@@ -126,38 +162,12 @@
 
 
 
-<div *ngIf="zoomPer==75" class="bg-white">
-  <div class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24">
-    <div class="space-y-12">
-
-      <ul class="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
-        <li *ngFor="let artObject of artObjects">
-          <div [routerLink]="['object', artObject.objectID ]" class="cursor-pointer">
-
-          <div class="space-y-6">
-
-            <img class="animate__animated animate__fadeIn mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" src="{{artObject.primaryImageSmall}}" alt="">
-            <div class="text-lg leading-6 font-medium space-y-1">
-              <h3>{{artObject.objectName}}</h3>
-              <p class="text-indigo-600">{{artObject.objectDate}}</p>
-            </div>
-          </div>
-        </div>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-
 <div *ngIf="zoomPer == 100" class="bg-white">
   <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
     <div class="space-y-12">
 
       <ul class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
-        <div *ngFor="let artObject of artObjects">
+        <div *ngFor="let artObject of artObjects | paginator:page_size:page_number">
 
           <div [routerLink]="['object', artObject.objectID ]" class="cursor-pointer">
 
@@ -191,16 +201,12 @@
 </div>
 
 
+<div class="flex py-4 items-center justify-center">
+<mat-paginator [length]="totalObjects"
+[pageSize]="page_size"
+[pageSizeOptions]=pageSizeOptions
+(page)="handlePage($event)"
+>
+</mat-paginator>
 
-
-
-
-<!-- More items... 
-
-<ul *ngFor="let coll of collection.objectIDs">
-
-  
-    <a  [routerLink]="['object', coll]">{{coll}}</a>
-collection/cat/object/789
-</ul>
--->
+</div>

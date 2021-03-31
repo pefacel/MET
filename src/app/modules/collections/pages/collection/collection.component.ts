@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { ArtObjectService } from 'src/app/core/services/art-object.service';
 import { CollectionsService } from 'src/app/core/services/collections.service';
@@ -16,7 +17,11 @@ export class CollectionComponent implements OnInit {
   public artObjects: ArtObjectResponse[] = [];
   public zoomPer: number = 75;
   public title = '';
-
+  page_size: number = 6;
+  page_number: number = 1;
+  totalObjects: number = 0;
+  pageSizeOptions = [6, 12, 36, 72, 144];
+  topNumber=0;
 
   constructor(
     private artObjectService: ArtObjectService,
@@ -30,21 +35,26 @@ export class CollectionComponent implements OnInit {
 
       collectionsService.getCollectionBySearch(params.search).subscribe(resp => {
         this.collection = resp;
+        this.totalObjects = this.collection.total
         this.title = params.search + ' collection';
-        for (var i = 0; i < 100; i++) {
-          var num = this.collection.objectIDs[i];
-          artObjectService.getObjectById(num).subscribe(resp => {
-            this.artObjects.push(resp)
-          });
-          this.objectsIds.push(num);
-        }
+        this.load()
+
       })
     });
   }
 
   ngOnInit() { }
 
+  handlePage(e: PageEvent) {
+    console.log('pre pageSize', this.page_size)
+    this.page_size = e.pageSize;
+    console.log('post pageSize', this.page_size)
+    console.log('pre page_number', this.page_number)
 
+    this.page_number = e.pageIndex + 1;
+    console.log('post page_number', this.page_number)
+    this.load()
+  }
 
   zoomLevel(zoomPick: number) {
 
@@ -65,7 +75,25 @@ export class CollectionComponent implements OnInit {
 
   }
 
+  load() {
+    console.log('pre this.topNumber', this.topNumber)
+if(this.topNumber<this.page_number * this.page_size){
 
+  for (var i = this.topNumber; i < this.page_number * this.page_size; i++) {
+
+
+    var num = this.collection.objectIDs[i];
+    this.artObjectService.getObjectById(num).subscribe(resp => {
+      this.artObjects.push(resp)
+    });
+    this.objectsIds.push(num);
+  }
+  this.topNumber=this.page_number * this.page_size
+}
+
+console.log('post this.topNumber', this.topNumber)
+
+  }
 
 
 }

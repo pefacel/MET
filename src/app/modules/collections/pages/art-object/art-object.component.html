@@ -22,7 +22,7 @@
           </div>
           <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
             <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-              <div *ngIf="artObject.artistDisplayName" class="sm:col-span-1">
+              <div *ngIf="artObject.artistDisplayName != null" class="sm:col-span-1">
                 <dt class="text-sm font-medium text-gray-500">
                   Artist
                 </dt>
@@ -38,12 +38,12 @@
                 </dd>
               </div>
               <div *ngIf="artObject.country" class="sm:col-span-1">
-                <dt class="text-sm font-medium text-gray-500">
+                <dt  class="text-sm font-medium text-gray-500">
                   Country
                 </dt>
-                <dd class="mt-1 text-sm text-gray-900">
+                <a routerLink="/collections/collection/{{artObject.country}}" class="mt-1 text-sm text-gray-900">
                   {{artObject.country}}
-                </dd>
+                </a>
               </div>
               <div *ngIf="artObject.region" class="sm:col-span-1">
                 <dt class="text-sm font-medium text-gray-500">
@@ -88,6 +88,14 @@
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900">
                   {{artObject.classification}} </dd> 
+              </div>
+              <div *ngIf="artObject.medium" class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">
+                  Medium
+                </dt>
+                <a routerLink="/collections/collection/{{artObject.medium}}" class="mt-1 text-sm text-gray-900">
+                  {{artObject.medium}}
+                </a>
               </div>
               <div *ngIf="artObject.creditLine" class="sm:col-span-2">
                 <dt class="text-sm font-medium text-gray-500">

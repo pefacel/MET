@@ -11,14 +11,15 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './modules/contact/contact.component';
 import { DepartmentsComponent } from './modules/departments/departments.component';
 import { SearchComponent } from './shared/components/search/search.component';
 import { FooterComponent } from './core/footer/footer.component';
-import { MayusculasPipe } from './shared/pipes/mayusculas.pipe';
-import { UpperLessAndOrPipe } from './shared/pipes/upper-less-and-or.pipe';
+
+
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import { UpperLessAndOrPipe } from './shared/pipes/upper-less-and-or.pipe';
     ContactComponent,
     DepartmentsComponent,
     SearchComponent,
-    MayusculasPipe,
-    UpperLessAndOrPipe,
+
+
     
   ],
   imports: [
@@ -41,6 +42,7 @@ import { UpperLessAndOrPipe } from './shared/pipes/upper-less-and-or.pipe';
     AngularFireAuthModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
+    AngularFireDatabaseModule,
     FormsModule
 
   ],

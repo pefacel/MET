@@ -18,19 +18,71 @@
 <div class="bg-green-50">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
         <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
-            <span class="block">Edit your... </span>
+            <span class="block">See your... </span>
             <span class="block text-green-600">personal information</span>
         </h2>
         <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
             <div class="inline-flex rounded-md shadow">
-                <a routerLink="/collections"
+                <a (click)="seeDet()"
                     class="cursor-pointer inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700">
-                    Edit!
+                    Look!
                 </a>
             </div>
         </div>
     </div>
 </div>
+
+
+<div class="px-16 pb-16 bg-green-50">
+    <div *ngIf="detOK" class=" bg-white shadow overflow-hidden sm:rounded-lg">
+   
+        <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Profile Information
+      </h3>
+      <p class="mt-1 max-w-2xl text-sm text-gray-500">
+        Personal details.
+      </p>
+    </div>
+
+
+
+
+    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+      <dl class="sm:divide-y sm:divide-gray-200">
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+        Name
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ myUser.name }}
+          </dd>
+        </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Email
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ myUser.email }}
+          </dd>
+        </div>
+        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Phone number
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ myUser.phoneNumber }}
+          </dd>
+        </div>
+
+      </dl>
+    </div>
+  </div> 
+ </div>
+
+  
+
+
 
 <div class="bg-yellow-50">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:flex lg:items-center lg:justify-between">
@@ -91,13 +143,3 @@
 
 
 
-
-<ul>
-    <li>email: {{ myUser.email }}</li>
-    <li>uid: {{ myUser.uid }}</li>
-    <li>name: {{ myUser.name }}</li>
-    <li>Phone number: {{ myUser.phoneNumber }}</li>
-
-
-
-</ul>
