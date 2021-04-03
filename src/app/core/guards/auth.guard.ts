@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    this.authenticationService.currentUSer().then(resp => {
+    this.authenticationService.currentUser().then(resp => {
       console.log('resp guard', resp);
       if (resp != null) {
         console.log('guard pass!!');

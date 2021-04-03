@@ -25,7 +25,7 @@ export class DepartmentsService {
     {
       name: "Ancient American Art",
       description: "The Met's collection of ancient American art comprises more than 6,000 works of art representing almost 5,000 years of history from North, Central, and South America and the Caribbean. ",
-      img: "https://images.metmuseum.org/CRDImages/ad/web-large/L.2009.22.279a.b.jpg"
+      img: "https://images.metmuseum.org/CRDImages/ad/web-large/L.2009.22.136.jpg"
     },
     {
       name: "Asian Art",
@@ -45,12 +45,12 @@ export class DepartmentsService {
     {
       name: "Egyptian Art",
       description: "The Met's collection of ancient Egyptian art consists of approximately 26,000 objects of artistic, historical, and cultural importance, dating from the Paleolithic to the Roman period(ca. 300, 000 B.C.–A.D. 4th century).",
-      img: "https://images.metmuseum.org/CRDImages/eg/web-large/DP240337.jpg"
+      img: "https://images.metmuseum.org/CRDImages/eg/web-large/DT8191.jpg"
     },
     {
       name: "European Paintings",
       description: "The Met's celebrated European Paintings collection encompasses more than 2,500 works of art from the thirteenth through the early twentieth century.",
-      img: "https://images.metmuseum.org/CRDImages/ep/web-large/DP-1019-01.jpg"
+      img: "https://images.metmuseum.org/CRDImages/ep/web-large/DT1403.jpg"
     },
     {
       name: "European Sculpture and Decorative Arts",

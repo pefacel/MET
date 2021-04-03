@@ -25,14 +25,17 @@ export class AuthenticationService {
     }
 
   }
-  async logout() {
+   logout() {
 
     try {
 
-      const logoutResp = await this.angularFireAuth.signOut();
+      const logoutResp =  this.angularFireAuth.signOut();
 
       console.log('logout exitoso');
+      this.router.navigate(['home']);
+
       localStorage.clear();
+
       return logoutResp;
 
     } catch (error) {
@@ -45,11 +48,12 @@ export class AuthenticationService {
 
 
 
-  async currentUSer() {
+  async currentUser() {
     try {
-      const currentUSerResp = this.angularFireAuth.currentUser;
-      console.log('currentUser service -->', currentUSerResp);
-      return currentUSerResp;
+      const currentUserResp = this.angularFireAuth.currentUser;
+      console.log('currentUser service -->', currentUserResp);
+      localStorage.setItem('logged','true');
+      return currentUserResp;
     } catch (error) {
       console.log('error current user -->', error);
     }

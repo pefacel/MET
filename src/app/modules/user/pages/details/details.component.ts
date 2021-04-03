@@ -47,7 +47,7 @@ export class DetailsComponent implements OnInit {
     private searchService: SearchService
 
   ) {
-    this.authService.currentUSer().then(async resp => {
+    this.authService.currentUser().then(async resp => {
 
       console.log('usuario actual', resp);
       this.uid = resp.uid;
@@ -79,7 +79,8 @@ export class DetailsComponent implements OnInit {
         uid: data.uid,
         favObjs: data.favObjs
       }
-      console.log('my user ---> ', this.myUser);
+
+
       localStorage.setItem('email', this.myUser.email);
       console.log('localStorage email  ---> ', localStorage.getItem('email'));
 

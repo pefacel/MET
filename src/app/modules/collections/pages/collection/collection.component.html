@@ -75,17 +75,6 @@
 
 </nav>
 
-<div class="flex py-4 items-center justify-center">
-  <mat-paginator [length]="totalObjects"
-  [pageSize]="page_size"
-  [pageSizeOptions]=pageSizeOptions
-  (page)="handlePage($event)"
-  >
-  </mat-paginator>
-  
-  </div>
-  
-
 <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
   <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">{{title | titlecase}} </h2>
   <p class="text-xl text-gray-500">Click in the Art Object for more details</p>

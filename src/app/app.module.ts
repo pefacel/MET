@@ -18,6 +18,8 @@ import { ContactComponent } from './modules/contact/contact.component';
 import { DepartmentsComponent } from './modules/departments/departments.component';
 import { SearchComponent } from './shared/components/search/search.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { ContactService } from './core/services/contact.service';
+import { ApiMetComponent } from './modules/api-met/api-met.component';
 
 
 
@@ -29,6 +31,7 @@ import { FooterComponent } from './core/footer/footer.component';
     ContactComponent,
     DepartmentsComponent,
     SearchComponent,
+    ApiMetComponent,
 
 
     
@@ -46,7 +49,7 @@ import { FooterComponent } from './core/footer/footer.component';
     FormsModule
 
   ],
-  providers: [],
+  providers: [ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

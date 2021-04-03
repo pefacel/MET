@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { UserResponse } from 'src/app/shared/models/user-response';
@@ -22,12 +22,15 @@ export class HeaderComponent  {
   showHead: boolean = false;
 
   user: string = '';
+  private serviceSuscription: Subject<boolean> = new Subject();
 
-  constructor(private router: Router) {
-    // on route change to '/login', set the variable showHead to false
+  constructor(private router: Router,private authService: AuthenticationService) {
       router.events.forEach((event) => {
         if (event instanceof NavigationStart) {
           if (event['url'] == '/user/details') {
+            console.log('true logged ', this.authService.currentUser());
+
+         
             this.showHead = true;
             console.log("logged")
 
@@ -51,6 +54,11 @@ this.user = localStorage.getItem('email');
 
   }
 
+  logout(): void {
+
+    this.authService.logout();
+this.showHead = false
+  }
 
 
 

@@ -1,52 +1,48 @@
 <main class="lg:relative">
-    <div class="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
-      <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
-        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-          <span class="block xl:inline">Welcome to </span>
-          <span class="block text-red-600 xl:inline">The Metropolitan Museum of Art</span>
-        </h1>
-        <p class="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                   </p>
-        <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
-          <div class="rounded-md shadow">
-            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
-              Get started
-            </a>
-          </div>
-          <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
-              Register
-            </a>
-          </div>
+  <div class="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
+    <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
+      <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+        <span class="block xl:inline">Welcome to </span>
+        <span class="block text-red-600 xl:inline">The Metropolitan Museum of Art</span>
+      </h1>
+      <p class="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
+      </p>
+      <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
+        <div class="rounded-md shadow">
+          <a routerLink="/departments"
+            class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+            Collections
+          </a>
+        </div>
+        <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+          <a href="#"
+            class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+            Register
+          </a>
         </div>
       </div>
     </div>
-    <div class="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
-      
-      <video class="absolute inset-0 w-full h-full object-cover" autoplay>
-        <source src="/assets/videos/MET.mp4" type="video/mp4">
-      </video>
-    </div>
-  </main>
-
-
-
-<!-- This example requires Tailwind CSS v2.0+ -->
+  </div>
+  <div class="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay>
+      <source src="/assets/videos/MET.mp4" type="video/mp4">
+    </video>
+  </div>
+</main>
 <div class="relative bg-white pt-16 pb-32 overflow-hidden">
- 
   <div class="py-4 relative">
     <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
       <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
         <div>
-
           <div class="mt-6">
             <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-              3 zoom levels for better exploration            </h2>
+              3 zoom levels </h2>
             <p class="mt-4 text-lg text-gray-500">
-              Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
-            </p>
+              3 zoom levels for better exploration. Do you want to easily find an object that you saw and cannot find
+              anymore? Or do you prefer to browse in more detail? It's your decision.
             <div class="mt-6">
-              <a routerLink="/collections/collection/asian" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+              <a routerLink="/collections/collection/japan"
+                class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
                 Get started
               </a>
             </div>
@@ -56,37 +52,34 @@
           <blockquote>
             <div>
               <p class="text-base text-gray-500">
-                &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed diam. Sit orci risus aenean curabitur donec aliquet. Mi venenatis in euismod ut.&rdquo;
-              </p>
+                . </p>
             </div>
-
           </blockquote>
         </div>
       </div>
       <div class="mt-12 sm:mt-16 lg:mt-0">
         <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-          <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" 
-          src="/assets/images/zoom.gif" alt="Inbox user interface">
+          <img
+            class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+            src="/assets/images/zoom.gif" alt="Inbox user interface">
         </div>
       </div>
     </div>
   </div>
- 
   <div class="relative">
     <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
       <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
         <div>
-
           <div class="mt-6">
             <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-              Better understand your customers
-            </h2>
+              Full details </h2>
             <p class="mt-4 text-lg text-gray-500">
-              Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
-            </p>
+              Each object has a detailed list of characteristics such as the year, if it belonged to a dynasty, culture,
+              country, medium with which it is created ... you can even download the original image to print.
             <div class="mt-6">
-              <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
-                Get started
+              <a routerLink="/collections/collection/Masks/object/318622"
+                class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                Queen Mother Pendant Mask
               </a>
             </div>
           </div>
@@ -94,7 +87,96 @@
       </div>
       <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
         <div class="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-          <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="/assets/images/select.gif" alt="Customer profile user interface">
+          <img
+            class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
+            src="/assets/images/select.gif" alt="Customer profile user interface">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-4 relative">
+    <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
+      <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
+        <div>
+          <div class="mt-6">
+            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
+              Search bar </h2>
+            <p class="mt-4 text-lg text-gray-500">
+              If you register, you can access the search bar. Your favorite cultures such as Incas, Romans, Greek or
+              objects like swords or helmets are waiting for you. </p>
+            <div class="mt-6">
+              <a routerLink="/user/register"
+                class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
+                Register
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 border-t border-gray-200 pt-6">
+          <blockquote>
+            <div>
+              <p class="text-base text-gray-500">
+                . </p>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+      <div class="mt-12 sm:mt-16 lg:mt-0">
+        <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
+          <img
+            class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+            src="/assets/images/search.gif" alt="Inbox user interface">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="relative py-16 bg-white">
+    <div class="hidden absolute top-0 inset-x-0 h-1/2 bg-gray-50 lg:block" aria-hidden="true"></div>
+    <div class="max-w-7xl mx-auto bg-indigo-600 lg:bg-transparent lg:px-8">
+      <div class="lg:grid lg:grid-cols-12">
+        <div class="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-4 lg:py-16 lg:bg-transparent">
+          <div class="absolute inset-x-0 h-1/2 bg-gray-50 lg:hidden" aria-hidden="true"></div>
+          <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
+            <div class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
+              <img class="object-cover object-center rounded-3xl shadow-2xl"
+                src="https://images.metmuseum.org/CRDImages/es/original/DP-16489-005.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div
+          class="relative bg-indigo-600 lg:col-start-3 lg:row-start-1 lg:col-span-10 lg:rounded-3xl lg:grid lg:grid-cols-10 lg:items-center">
+          <div class="hidden absolute inset-0 overflow-hidden rounded-3xl lg:block" aria-hidden="true">
+            <svg
+              class="absolute bottom-full left-full transform translate-y-1/3 -translate-x-2/3 xl:bottom-auto xl:top-0 xl:translate-y-0"
+              width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
+              <defs>
+                <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20"
+                  patternUnits="userSpaceOnUse">
+                  <rect x="0" y="0" width="4" height="4" class="text-indigo-500" fill="currentColor" />
+                </pattern>
+              </defs>
+              <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
+            </svg>
+            <svg class="absolute top-full transform -translate-y-1/3 -translate-x-1/3 xl:-translate-y-1/2" width="404"
+              height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
+              <defs>
+                <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20"
+                  patternUnits="userSpaceOnUse">
+                  <rect x="0" y="0" width="4" height="4" class="text-indigo-500" fill="currentColor" />
+                </pattern>
+              </defs>
+              <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
+            </svg>
+          </div>
+          <div
+            class="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
+            <h2 class="text-3xl font-extrabold text-white" id="join-heading">The MET API</h2>
+            <p class="text-lg text-white">
+              The MET provides a complete API of all the objects that the museum owns. Take a look at this 2020 post
+              they wrote for the 3rd anniversary of this Open API.</p>
+            <a class="block w-full py-3 px-5 text-center bg-white border border-transparent rounded-md shadow-md text-base font-medium text-indigo-700 hover:bg-gray-50 sm:inline-block sm:w-auto"
+              routerLink="/api-met">Read</a>
+          </div>
         </div>
       </div>
     </div>

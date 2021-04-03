@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    pass: new FormControl('', [Validators.required])
+    pass: new FormControl('', [Validators.required, Validators.minLength(6)])
 
   })
 
@@ -47,7 +47,6 @@ export class RegisterComponent implements OnInit {
         profile: '',
         uid: resp.uid,
         favObjs:[]
-
       }
 
       this.databaseService.createUser(newUser).then(resp => {
