@@ -17,11 +17,11 @@ export class CollectionComponent implements OnInit {
   public artObjects: ArtObjectResponse[] = [];
   public zoomPer: number = 75;
   public title = '';
-  page_size: number = 6;
+  page_size: number = 36;
   page_number: number = 1;
   totalObjects: number = 0;
-  pageSizeOptions = [6, 12, 36, 72, 144];
-  topNumber=0;
+  pageSizeOptions = [12, 36, 72, 144];
+  topNumber = 0;
 
   constructor(
     private artObjectService: ArtObjectService,
@@ -46,18 +46,12 @@ export class CollectionComponent implements OnInit {
   ngOnInit() { }
 
   handlePage(e: PageEvent) {
-    console.log('pre pageSize', this.page_size)
     this.page_size = e.pageSize;
-    console.log('post pageSize', this.page_size)
-    console.log('pre page_number', this.page_number)
-
     this.page_number = e.pageIndex + 1;
-    console.log('post page_number', this.page_number)
     this.load()
   }
 
   zoomLevel(zoomPick: number) {
-
     this.zoomPer = zoomPick;
     console.log('zoom', this.zoomPer);
   }
@@ -77,21 +71,21 @@ export class CollectionComponent implements OnInit {
 
   load() {
     console.log('pre this.topNumber', this.topNumber)
-if(this.topNumber<this.page_number * this.page_size){
+    if (this.topNumber < this.page_number * this.page_size) {
 
-  for (var i = this.topNumber; i < this.page_number * this.page_size; i++) {
+      for (var i = this.topNumber; i < this.page_number * this.page_size; i++) {
 
 
-    var num = this.collection.objectIDs[i];
-    this.artObjectService.getObjectById(num).subscribe(resp => {
-      this.artObjects.push(resp)
-    });
-    this.objectsIds.push(num);
-  }
-  this.topNumber=this.page_number * this.page_size
-}
+        var num = this.collection.objectIDs[i];
+        this.artObjectService.getObjectById(num).subscribe(resp => {
+          this.artObjects.push(resp)
+        });
+        this.objectsIds.push(num);
+      }
+      this.topNumber = this.page_number * this.page_size
+    }
 
-console.log('post this.topNumber', this.topNumber)
+    console.log('post this.topNumber', this.topNumber)
 
   }
 

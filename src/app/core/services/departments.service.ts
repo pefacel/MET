@@ -5,6 +5,9 @@ import { Department } from 'src/app/shared/models/department';
   providedIn: 'root'
 })
 export class DepartmentsService {
+
+  // Unfortunately the API did not contain either the description or a reference image by department, so I had to create.
+
   private _departments: Department[] = [
 
     {
@@ -104,7 +107,7 @@ export class DepartmentsService {
 
     }];
 
-    getDepartments(): Department[] {
-      return this._departments;
-    }
+  getDepartments(): Department[] {
+    return this._departments;
+  }
 }

@@ -5,6 +5,8 @@ import { Highlight } from 'src/app/shared/models/highlight';
   providedIn: 'root'
 })
 export class HighlightService {
+
+  // Selected collections from the API
   private _departments: Highlight[] = [
 
     {
