@@ -4,4 +4,4 @@ This is a refactoring of The Metropolitan Museum of Arts make with Angular 8 for
 
 ## Deploy
 
-https://met30.netlify.app/home
+https://met30.netlify.app/
